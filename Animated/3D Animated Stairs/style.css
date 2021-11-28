@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(#ffffff, #fddddd);
+    overflow: hidden;
+}
+
+.stairs {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    transform-style: preserve-3d;
+    /* để các phần tử con được biến đổi bảo toàn các phép biến đổi 3d */
+    transform: rotateX(-30deg) rotateY(-10deg);
+    animation: animate 10s linear infinite;
+    /* RotateX xoay phần tử theo trục X */
+}
+
+@keyframes animate {
+    0% {
+        transform: rotateX(-30deg) rotateY(0);
+    }
+    100% {
+        transform: rotateX(-30deg) rotateY(360deg);
+    }
+}
+
+.stairs .base {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    width: 360px;
+    height: 300px;
+    background: #000;
+    transform: rotateX(90deg) translateZ(-150px) scale(1.25);
+    filter: blur(20px);
+    opacity: 0.5;
+}
+
+.stairs .step {
+    position: absolute;
+    left: calc(60px * var(--j));
+    width: 60px;
+    bottom: 0;
+    height: calc(60px * var(--j));
+    /* background:rgb(calc(60 * var(--j)),calc(28 * var(--j)),calc(28 * var(--j))); */
+    transform-style: preserve-3d;
+}
+
+.stairs .step::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 300px;
+    transform: rotateX(90deg) translateZ(150px);
+    background: rgb(calc(80 * var(--j)), calc(28 * var(--j)), calc(28 * var(--j)));
+}
+
+.stairs .step:hover:before {
+    filter: brightness(1.1);
+    cursor: pointer;
+}
+
+.stairs .step::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 60px;
+    transform: rotateY(-90deg) translateZ(150px);
+    background: rgb(calc(0 * var(--j)), calc(28 * var(--j)), calc(28 * var(--j)));
+}
+
+.stairs .step i {
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 100%;
+    background: rgb(calc(0 * var(--j)), calc(28 * var(--j)), calc(28 * var(--j)));
+    transform-style: preserve-3d;
+}
+
+.stairs .step :nth-child(1) {
+    transform: translateZ(150px);
+}
+
+.stairs .step :nth-child(2) {
+    transform: translateZ(-150px);
+}
+
+.stairs .step:last-of-type i:last-child:before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: rotateY(90deg) translate3d(-150px, 0, -90px);
+    background: rgb(calc(0 * var(--j)), calc(28 * var(--j)), calc(28 * var(--j)));
+}

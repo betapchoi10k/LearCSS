@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(rgb(192, 233, 43), rgb(149, 187, 245));
+}
+
+.my-loader {
+    position: relative;
+    width: 300px;
+    height: 150px;
+}
+
+.loader-by-duy {
+    position: absolute;
+    display: flex;
+}
+
+.loader-by-duy>span {
+    margin: 5rem .5rem;
+    background-color: blue;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    opacity: 1;
+    animation: backloader .6s infinite alternate;
+}
+
+.loader-by-duy>span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader-by-duy>span:nth-child(3) {
+    animation-delay: 0.4;
+}
+
+@keyframes backloader {
+    from {
+        transform: translate(1, 0);
+    }
+    to {
+        opacity: 0.2;
+        width: 0.1rem;
+        height: 0.1rem;
+        transform: translate(-3, -1rem);
+    }
+}
+
+
+/* Css Ring loader Effects */
+
+.ring-loader {
+    display: flex;
+    width: 100%;
+    height: 120px;
+    align-items: flex-end;
+}
+
+.container-ring-loader {
+    position: relative;
+    width: calc(100% * 2/3);
+    height: calc(100% * 2/3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-ring-loader .ring {
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border: 4px solid transparent;
+    border-top: 4px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    margin: -25px;
+}
+
+.container-ring-loader .ring:nth-child(3) {
+    position: absolute;
+    top: 0
+}

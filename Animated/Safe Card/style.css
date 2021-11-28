@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(#ffe2e2, #7aee5d);
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#1be2f0, #ec22b0);
+    clip-path: circle(20% at right 70%);
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#1be2f0, #ec22b0);
+    clip-path: circle(10% at 10% 10%);
+}
+
+.card {
+    width: 300px;
+    height: 600px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 15px 15px 5px rgb(173 161 161 / 50%);
+    position: relative;
+    transition: transform 1s;
+    border-top: 1px solid rgba(255, 255, 255, .5);
+    border-left: 1px solid rgba(255, 255, 255, .5);
+}
+
+.card:hover {
+    transform: translateY(-40px);
+    transition: transform 1s;
+}
+
+.card .ribbon {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: transparent;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card .ribbon::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 150%;
+    height: 40px;
+    background: #62baea;
+    transform: rotate(-45deg) translateY(-20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+}
+
+.card .ribbon::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgb(32, 35, 235);
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    box-shadow: 140px -140px rgb(32, 35, 235);
+}
+
+.card .box-container-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    /*aspect-ratio: Tỷ lệ khung nhìn của elememt */
+    position: relative;
+    top: 0%;
+    left: 0;
+    overflow: hidden;
+}
+
+.menu-tool {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.menu-tool .tool {
+    padding: 5px;
+    color: #f4f4f4;
+    cursor: pointer;
+    display: flex;
+    text-decoration: none;
+}
+
+.menu-tool .tool:focus-within i {
+    color: rgb(54, 20, 247);
+}
+
+.card .box-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('./img/2 đứa bạn.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    filter: blur(35px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .card-img {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card .card-title {
+    margin-bottom: 1rem;
+    margin-left: .5rem;
+}
+
+.card .card-title .auto-input-text {
+    position: relative;
+    font-weight: 600;
+    font-size: 1.24rem;
+    color: transparent;
+    -webkit-text-stroke: 1px #383d52;
+    display: inline;
+}
+
+.card .card-title .auto-input-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    color: #34fc02;
+    z-index: 1;
+    border-right: 3px #34fc02 solid;
+    overflow: hidden;
+    white-space: pre;
+    animation: animate 6s linear, border-animae 1s linear infinite;
+}
+
+.card .card-body {
+    padding: 1rem;
+}
+
+@keyframes animate {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes border-animae {
+    0% {
+        border-right: none;
+    }
+    100% {
+        border-right: 3px #34fc02 solid;
+    }
+}

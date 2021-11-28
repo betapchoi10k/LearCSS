@@ -1,0 +1,53 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.bg{
+    position: relative;
+    background: #00fdff url(background.jpg);
+    background-size: cover;
+    height: 100vh;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    animation: bg-animate 15s  linear infinite;
+}
+
+.witch{
+    position: absolute;
+    top:20%;
+    left: 25%;
+    animation: witch-animate 15s alternate  linear infinite;
+}
+
+@keyframes witch-animate{
+    0%   {
+        top: 10%;
+        left: 20%;
+    }
+    25%  {
+        top: 20%;
+        left: 25%;
+    }
+    50%  {
+        top: 15%;
+        left: 30%;
+    }
+    75%  {
+        top: 10%;
+        left: 35%;
+    }
+    100% {
+        top: 10%;
+        left: 40%;
+    }
+}
+
+@keyframes bg-animate{
+    from{
+        background-position:  0 0;
+    }
+    to{
+        background-position:  100% 0;
+    }
+}

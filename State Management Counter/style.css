@@ -1,0 +1,13 @@
+:root {
+    /* Set heading to Zero */
+    counter-reset: heading;
+}
+
+h1 {
+    /* Increment heading by 1 */
+    counter-increment: heading;
+}
+
+h1::before {
+    content: counter(heading) ". ";
+}
