@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn-sugest {
+            width: 10px;
+            height: 10px;
+        }
+
+        .btn-circle-click {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .circle-outline {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-color: greenyellow;
+            border-radius: 50%;
+            animation: circleZoom 1s ease-in 1s infinite;/* alternate : đến rồi đi */ 
+        }
+
+        @keyframes circleZoom {
+            from {
+               width: 70px;
+                height: 70px;
+            }
+
+            to {
+                 width: 30px;
+                height: 30px;
+            }
+        }
+
+        .mouse-click{
+          top:10px;
+          left: 200px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn-sugest" style="position: relative;">
+        <div class="btn-circle-click">
+            <div class="circle-outline">
+            </div>
+            <div class="circle">
+            </div>
+        </div>
+        <div class="mouse-click">
+            <i class="fas fa-mouse-pointer"></i>
+        </div>
+    </div>
+</body>
+
+</html>

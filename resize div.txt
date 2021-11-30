@@ -1,0 +1,37 @@
+   this.ele = document.getElementById('drawerDetail');
+        this.eleContent = document.getElementById('main-sidenav-content');
+
+ mouseDownHandler(e) {
+        var me = this;
+        // Get the current mouse position
+        this.x = e.clientX;
+        this.isRes = true;
+        // Calculate the dimension of element
+        const styles = window.getComputedStyle(this.ele);
+        this.w = parseInt(styles.width, 10);
+        // Attach the listeners to `document`
+        document.addEventListener('mousemove', (e) => {
+            me.mouseMoveHandler(e)
+        });
+        document.addEventListener('mouseup', () => {
+            me.mouseUpHandler()
+        });
+    };
+
+    mouseMoveHandler(e) {
+        // How far the mouse has been moved
+        if (this.isRes) {
+            const dx = e.clientX - this.x;
+            this.ele.style.width = (this.w + dx) + 'px';
+            //this.eleContent.style.marginLeft = (this.w + dx) + 'px';
+        }
+        this.cdRef.detectChanges();
+        this._service.gMap.resize();
+    };
+
+    mouseUpHandler() {
+        var me = this;
+        this.isRes = false;
+        // Remove the handlers of `mousemove` and `mouseup`
+        document.removeEventListener('mousemove', me.mouseMoveHandler);
+    };
