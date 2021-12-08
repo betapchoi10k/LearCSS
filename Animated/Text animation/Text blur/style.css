@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background:linear-gradient(#fff,#6cc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
+/* 
+.text{
+    font-size: 80pt;
+    animation: text-blur 3s 2s ease;
+    text-transform: uppercase;
+}
+
+@keyframes text-blur{
+    0%{
+        filter:blur(80px);
+    }
+    50%{
+        filter:blur(1);
+    }
+    100%{
+        filter:blur(1);
+    }
+} */
+
+/* Advance */
+.container{
+    position: relative;
+}
+
+.text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 40pt;
+    animation-name: text-blur;
+    animation-timing-function:  ease;
+    animation-duration: 6s;
+    animation-direction: alternate;
+    animation-delay:calc(var(--j)*6s);
+    text-transform: uppercase;
+    color: transparent;
+    visibility: hidden;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;
+    text-align: center;
+}
+
+.text-small{
+    font-size: 20pt;
+}
+
+@keyframes text-blur{
+    /* Bottom - top */
+    0%{
+        filter:blur(80px);
+        visibility: visible;
+        transform: translate(-50%,calc(100px - 50%));
+    }
+    25%,75%{
+        filter:blur(0);
+        color: #000;
+        transform: translate(-50%,-50%);
+    }
+    100%{
+        filter:blur(80px);
+        transform: translate(-50%,calc(100px - 50%));
+    }
+   
+    /*
+    left : translate(-100%,-50%)
+    right :  transform: translate(0%,-50%);
+    top : translate(-50%,calc(-100px - 50%));
+    bottom : translate(-50%,calc(100px - 50%));
+    */
+} 
